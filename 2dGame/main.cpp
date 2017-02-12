@@ -1,6 +1,6 @@
 #include <iostream>
 #include <SDL.h>
-#include "SDL_render.h"
+#include "Player.h"
 
 using namespace std;
 
@@ -8,6 +8,9 @@ using namespace std;
 const int WIDTH = 640, HEIGHT = 480;
 const char* TITLE = "OneTapSoftworks - Technology Demo";
 const bool RESIZABLE = false;
+
+enum STATE {MENU, GAME};
+STATE state = GAME;
 
 bool running = true;
 
@@ -29,12 +32,7 @@ int main(int argc, char*args[])
 	// Setting up renderer
 	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-	// Setting up a Rectangle
-	SDL_Rect rect;
-	rect.x = 50;
-	rect.y = 50;
-	rect.w = 50;
-	rect.h = 50;
+	Player* player = new Player(50,50,50,50);
 
 	SDL_Event event;
 	while (running) 
@@ -47,6 +45,26 @@ int main(int argc, char*args[])
 				running = false;
 				break;
 			}
+			if (event.type == SDL_KEYDOWN)
+			{
+				float spd = player->getSpd();
+				if ((event.key.keysym.sym == SDLK_a))
+				{
+					player->Move(-spd, 0);
+				}
+				if ((event.key.keysym.sym == SDLK_d))
+				{
+					player->Move(spd, 0);
+				}
+				if ((event.key.keysym.sym == SDLK_w))
+				{
+					player->Move(0, -spd);
+				}
+				if ((event.key.keysym.sym == SDLK_s))
+				{
+					player->Move(0, spd);
+				}
+			}
 		}
 
 		/* !RENDERING! */
@@ -55,9 +73,16 @@ int main(int argc, char*args[])
 		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 		SDL_RenderClear(renderer);
 
-		// Rendering player
-		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-		SDL_RenderDrawRect(renderer, &rect);
+		switch (state)
+		{
+			case STATE::MENU:
+				// RENDEROWANIE MENU
+				break;
+			case STATE::GAME:
+				// RENDEROWANIE GRY
+				player->Draw(renderer);
+				break;
+		}
 
 		// Cleaning up
 		SDL_RenderPresent(renderer);
