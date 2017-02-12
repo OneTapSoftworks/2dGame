@@ -1,8 +1,10 @@
 #include <iostream>
 
+using namespace std;
+
 int main()
 {
-	std::cout << "SUPER KURWA GRA" << std::endl;
+	cout << "SUPER KURWA GRA" << endl;
 	while (true) {}
 	return EXIT_SUCCESS;
 }
