@@ -1,16 +1,21 @@
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include <SDL.h>
 #include "Player.h"
+#include "Engine.h"
 
 using namespace std;
 
 // Window config
-const int WIDTH = 640, HEIGHT = 480;
+int WIDTH = 0, HEIGHT = 0;
 const char* TITLE = "OneTapSoftworks - Technology Demo";
 const bool RESIZABLE = false;
 
 enum STATE {MENU, GAME};
 STATE state = GAME;
+
+Engine engine;
 
 bool running = true;
 
@@ -19,6 +24,13 @@ int main(int argc, char*args[])
 	// Initializing
 	SDL_Init(SDL_INIT_EVERYTHING);
 	cout << "Engine starting..." << endl;
+	cout << "Reading config files..." << endl;
+
+	engine.ReadConfig();
+	WIDTH = engine.getWidth();
+	HEIGHT = engine.getHeight();
+	cout << "Config files readed." << endl;
+	cout << "Creating game window." << endl;
 
 	// Setting up game window
 	SDL_Window *window;
@@ -45,24 +57,34 @@ int main(int argc, char*args[])
 				running = false;
 				break;
 			}
-			if (event.type == SDL_KEYDOWN)
+			if (state == STATE::GAME)
 			{
-				float spd = player->getSpd();
-				if ((event.key.keysym.sym == SDLK_a))
+				if (event.type == SDL_KEYDOWN)
 				{
-					player->Move(-spd, 0);
+					float spd = player->getSpd();
+					if ((event.key.keysym.sym == SDLK_a))
+					{
+						player->Move(-spd, 0);
+					}
+					if ((event.key.keysym.sym == SDLK_d))
+					{
+						player->Move(spd, 0);
+					}
+					if ((event.key.keysym.sym == SDLK_w))
+					{
+						player->Move(0, -spd);
+					}
+					if ((event.key.keysym.sym == SDLK_s))
+					{
+						player->Move(0, spd);
+					}
 				}
-				if ((event.key.keysym.sym == SDLK_d))
+			}
+			else if (state == STATE::MENU)
+			{
+				if (event.key.keysym.sym == SDLK_SPACE)
 				{
-					player->Move(spd, 0);
-				}
-				if ((event.key.keysym.sym == SDLK_w))
-				{
-					player->Move(0, -spd);
-				}
-				if ((event.key.keysym.sym == SDLK_s))
-				{
-					player->Move(0, spd);
+					state = STATE::GAME;
 				}
 			}
 		}
