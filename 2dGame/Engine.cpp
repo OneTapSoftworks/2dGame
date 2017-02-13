@@ -6,7 +6,7 @@ Engine::~Engine(){}
 void Engine::ReadConfig()
 {
 	fstream cfg;
-	cfg.open("engine.cfg");
+	cfg.open("engine/core.cfg");
 	string line;
 	int current_line = 1;
 	size_t      value = 0;
@@ -31,6 +31,12 @@ void Engine::ReadConfig()
 			respond >> value;
 			vsync = value;
 		}
+		if (current_line == 5)
+		{
+			stringstream respond = parse(line);
+			respond >> value;
+			fps_limit = value;
+		}
 		current_line++;
 	}
 	cfg.close();
@@ -39,3 +45,4 @@ void Engine::ReadConfig()
 int Engine::getHeight(){return h;}
 int Engine::getWidth(){return w;}
 int Engine::getVsync(){return vsync;}
+int Engine::getFpsLimit(){return fps_limit;}

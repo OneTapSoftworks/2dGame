@@ -21,10 +21,10 @@ public:
 		return respond;
 	}
 
-	int getWidth(), getHeight(), getVsync();
+	int getWidth(), getHeight(), getVsync(), getFpsLimit();
 
 	void ReadConfig();
 private:
-	int w, h, vsync;
+	int w, h, vsync, fps_limit;
 };
 
