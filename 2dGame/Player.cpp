@@ -1,25 +1,18 @@
 #include "Player.h"
 
-Player::Player(float xx, float yy, int ww, int hh)
+Player::Player(float x, float y, int w, int h)
 {
 	// Setup player
-	x = xx;
-	y = yy;
-	w = ww;
-	h = hh;
-	playerRect.x = x;
-	playerRect.y = y;
-	playerRect.w = 50;
-	playerRect.h = 50;
+	Player::x = x;
+	Player::y = y;
+	Player::w = w;
+	Player::h = h;
 
 	speed = 5;
 }
+Player::~Player(){}
 
-
-Player::~Player()
-{
-}
-
+// Draw player
 void Player::Draw(SDL_Renderer* r)
 {
 	Update();
@@ -28,10 +21,13 @@ void Player::Draw(SDL_Renderer* r)
 	SDL_RenderFillRect(r, &playerRect);
 }
 
+// Update function for player
 void Player::Update()
 {
 	playerRect.x = x;
 	playerRect.y = y;
+	playerRect.w = 50;
+	playerRect.h = 50;
 }
 
 void Player::Move(float xx, float yy)
