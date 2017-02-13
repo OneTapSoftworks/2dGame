@@ -1,7 +1,16 @@
-﻿  main.cpp
+﻿  Engine.cpp
+  main.cpp
+  MainMenu.cpp
+  Player.cpp
+Player.cpp(8): warning C4244: "=": konwersja z "int" do "float", możliwa utrata danych
+Player.cpp(9): warning C4244: "=": konwersja z "int" do "float", możliwa utrata danych
+Player.cpp(27): warning C4244: "=": konwersja z "float" do "int", możliwa utrata danych
+Player.cpp(28): warning C4244: "=": konwersja z "float" do "int", możliwa utrata danych
+Player.cpp(42): warning C4244: "return": konwersja z "float" do "int", możliwa utrata danych
+Player.cpp(43): warning C4244: "return": konwersja z "float" do "int", możliwa utrata danych
+Player.cpp(46): warning C4244: "=": konwersja z "int" do "float", możliwa utrata danych
+Player.cpp(47): warning C4244: "=": konwersja z "int" do "float", możliwa utrata danych
   Trwa generowanie kodu
-  1 of 16 functions ( 6.3%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    3 functions had inline decision re-evaluated but remain unchanged
+  All 226 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Zakończono generowanie kodu
   2dGame.vcxproj -> C:\Users\Artur1\Documents\Visual Studio 2017\Projects\2dGame\Release\2dGame.exe

@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <SDL.h>
+#include <SDL_TTF.h>
 #include "Player.h"
 #include "Engine.h"
 
@@ -22,8 +23,10 @@ bool running = true;
 
 int main(int argc, char*args[])
 {
+
 	// Initializing
 	SDL_Init(SDL_INIT_EVERYTHING);
+	TTF_Init();
 	cout << "Engine starting..." << endl;
 	cout << "Reading config files..." << endl;
 
@@ -46,6 +49,8 @@ int main(int argc, char*args[])
 		WIDTH, HEIGHT, RESIZABLE);
 	if (window == NULL) // Errors finding (for debugging)
 		cout << "ERROR: " << SDL_GetError() << endl;
+
+	
 
 	// Setting up renderer
 	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
@@ -120,5 +125,6 @@ int main(int argc, char*args[])
 	// Cleaning up
 	SDL_DestroyWindow(window);
 	SDL_Quit();
+	TTF_Quit();
 	return EXIT_SUCCESS;
 }
