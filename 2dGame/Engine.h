@@ -11,10 +11,10 @@ public:
 	Engine();
 	~Engine();
 
-	int getWidth(), getHeight();
+	int getWidth(), getHeight(), getVsync();
 
 	void ReadConfig();
 private:
-	int w, h;
+	int w, h, vsync;
 };
 

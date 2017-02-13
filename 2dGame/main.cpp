@@ -8,7 +8,7 @@
 using namespace std;
 
 // Window config
-int WIDTH = 0, HEIGHT = 0;
+int WIDTH = 0, HEIGHT = 0, VSYNC = 0;
 const char* TITLE = "OneTapSoftworks - Technology Demo";
 const bool RESIZABLE = false;
 
@@ -29,8 +29,11 @@ int main(int argc, char*args[])
 	engine.ReadConfig();
 	WIDTH = engine.getWidth();
 	HEIGHT = engine.getHeight();
+	VSYNC = engine.getVsync();
 	cout << "Config files readed." << endl;
 	cout << "Creating game window." << endl;
+
+	SDL_GL_SetSwapInterval(VSYNC);
 
 	// Setting up game window
 	SDL_Window *window;
