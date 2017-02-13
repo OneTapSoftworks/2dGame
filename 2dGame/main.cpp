@@ -19,6 +19,10 @@ Engine engine;
 
 bool running = true;
 
+void ruchamSiostreStresika()
+{
+	cout << "rucham jak chuj" << endl;
+}
 
 int main(int argc, char*args[])
 {
