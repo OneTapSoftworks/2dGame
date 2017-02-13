@@ -19,6 +19,11 @@ Engine engine;
 
 bool running = true;
 
+int penis(int penis)
+{
+	return penis;
+}
+
 int main(int argc, char*args[])
 {
 	// Initializing
