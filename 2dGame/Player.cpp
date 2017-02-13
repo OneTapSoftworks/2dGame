@@ -24,7 +24,7 @@ void Player::Draw(SDL_Renderer* r)
 {
 	Update();
 
-	SDL_SetRenderDrawColor(r, 51, 102, 25x, 255);
+	SDL_SetRenderDrawColor(r, 51, 102, 25, 255);
 	SDL_RenderFillRect(r, &playerRect);
 }
 

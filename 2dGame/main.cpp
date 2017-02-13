@@ -19,9 +19,9 @@ Engine engine;
 
 bool running = true;
 
-int penis(int penis)
+int adaskc(int adackc)
 {
-	return penis;
+	return adaskc;
 }
 
 int main(int argc, char*args[])
