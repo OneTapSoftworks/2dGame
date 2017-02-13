@@ -12,6 +12,7 @@ int WIDTH = 0, HEIGHT = 0, VSYNC = 0;
 const char* TITLE = "OneTapSoftworks - Technology Demo";
 const bool RESIZABLE = false;
 
+// State system
 enum STATE {MENU, GAME};
 STATE state = GAME;
 
@@ -26,6 +27,7 @@ int main(int argc, char*args[])
 	cout << "Engine starting..." << endl;
 	cout << "Reading config files..." << endl;
 
+	// Reading engine config
 	engine.ReadConfig();
 	WIDTH = engine.getWidth();
 	HEIGHT = engine.getHeight();
@@ -33,6 +35,7 @@ int main(int argc, char*args[])
 	cout << "Config files readed." << endl;
 	cout << "Creating game window." << endl;
 
+	// Setting up graphics
 	SDL_GL_SetSwapInterval(VSYNC);
 
 	// Setting up game window
@@ -47,6 +50,7 @@ int main(int argc, char*args[])
 	// Setting up renderer
 	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
+	// Creating player
 	Player* player = new Player(50,50,50,50);
 
 	SDL_Event event;
