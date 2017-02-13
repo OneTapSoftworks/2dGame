@@ -1,13 +1,18 @@
 ﻿  Player.cpp
-c:\users\user\documents\visual studio 2017\projects\2drpg\2dgame\player.cpp(8): warning C4244: "=": konwersja z "int" do "float", możliwa utrata danych
-c:\users\user\documents\visual studio 2017\projects\2drpg\2dgame\player.cpp(9): warning C4244: "=": konwersja z "int" do "float", możliwa utrata danych
-c:\users\user\documents\visual studio 2017\projects\2drpg\2dgame\player.cpp(10): warning C4244: "=": konwersja z "float" do "int", możliwa utrata danych
-c:\users\user\documents\visual studio 2017\projects\2drpg\2dgame\player.cpp(11): warning C4244: "=": konwersja z "float" do "int", możliwa utrata danych
-c:\users\user\documents\visual studio 2017\projects\2drpg\2dgame\player.cpp(33): warning C4244: "=": konwersja z "float" do "int", możliwa utrata danych
-c:\users\user\documents\visual studio 2017\projects\2drpg\2dgame\player.cpp(34): warning C4244: "=": konwersja z "float" do "int", możliwa utrata danych
-c:\users\user\documents\visual studio 2017\projects\2drpg\2dgame\player.cpp(46): warning C4244: "return": konwersja z "float" do "int", możliwa utrata danych
-c:\users\user\documents\visual studio 2017\projects\2drpg\2dgame\player.cpp(47): warning C4244: "return": konwersja z "float" do "int", możliwa utrata danych
-c:\users\user\documents\visual studio 2017\projects\2drpg\2dgame\player.cpp(50): warning C4244: "=": konwersja z "int" do "float", możliwa utrata danych
-c:\users\user\documents\visual studio 2017\projects\2drpg\2dgame\player.cpp(51): warning C4244: "=": konwersja z "int" do "float", możliwa utrata danych
-  2dGame.vcxproj -> C:\Users\user\Documents\Visual Studio 2017\Projects\2dRPG\Debug\2dGame.exe
-  2dGame.vcxproj -> C:\Users\user\Documents\Visual Studio 2017\Projects\2dRPG\Debug\2dGame.pdb (Partial PDB)
+c:\users\user\documents\visual studio 2017\projects\2dgame\2dgame\player.cpp(8): warning C4244: "=": konwersja z "int" do "float", możliwa utrata danych
+c:\users\user\documents\visual studio 2017\projects\2dgame\2dgame\player.cpp(9): warning C4244: "=": konwersja z "int" do "float", możliwa utrata danych
+c:\users\user\documents\visual studio 2017\projects\2dgame\2dgame\player.cpp(10): warning C4244: "=": konwersja z "float" do "int", możliwa utrata danych
+c:\users\user\documents\visual studio 2017\projects\2dgame\2dgame\player.cpp(11): warning C4244: "=": konwersja z "float" do "int", możliwa utrata danych
+c:\users\user\documents\visual studio 2017\projects\2dgame\2dgame\player.cpp(33): warning C4244: "=": konwersja z "float" do "int", możliwa utrata danych
+c:\users\user\documents\visual studio 2017\projects\2dgame\2dgame\player.cpp(34): warning C4244: "=": konwersja z "float" do "int", możliwa utrata danych
+c:\users\user\documents\visual studio 2017\projects\2dgame\2dgame\player.cpp(46): warning C4244: "return": konwersja z "float" do "int", możliwa utrata danych
+c:\users\user\documents\visual studio 2017\projects\2dgame\2dgame\player.cpp(47): warning C4244: "return": konwersja z "float" do "int", możliwa utrata danych
+c:\users\user\documents\visual studio 2017\projects\2dgame\2dgame\player.cpp(50): warning C4244: "=": konwersja z "int" do "float", możliwa utrata danych
+c:\users\user\documents\visual studio 2017\projects\2dgame\2dgame\player.cpp(51): warning C4244: "=": konwersja z "int" do "float", możliwa utrata danych
+  MainMenu.cpp
+  main.cpp
+  Engine.cpp
+  Generowanie kodu...
+  LINK : nie znaleziono elementu C:\Users\user\Documents\Visual Studio 2017\Projects\2dGame\Debug\2dGame.exe ani nie został on skompilowany podczas ostatniego konsolidowania przyrostowego; zostanie wykonana pełna konsolidacja
+  2dGame.vcxproj -> C:\Users\user\Documents\Visual Studio 2017\Projects\2dGame\Debug\2dGame.exe
+  2dGame.vcxproj -> C:\Users\user\Documents\Visual Studio 2017\Projects\2dGame\Debug\2dGame.pdb (Partial PDB)

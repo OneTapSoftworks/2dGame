@@ -19,10 +19,6 @@ Engine engine;
 
 bool running = true;
 
-int adaskc(int adackc)
-{
-	return adaskc;
-}
 
 int main(int argc, char*args[])
 {
