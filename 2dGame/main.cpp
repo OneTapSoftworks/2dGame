@@ -6,6 +6,7 @@
 #include <Windows.h>
 #include "Player.h"
 #include "Engine.h"
+#include "MainMenu.h"
 
 using namespace std;
 
@@ -16,7 +17,7 @@ const bool RESIZABLE = false;
 
 // State system
 enum STATE {MENU, GAME};
-STATE state = GAME;
+STATE state = MENU;
 
 Engine engine;
 
@@ -57,6 +58,9 @@ int main(int argc, char*args[])
 
 	// Creating player
 	Player* player = new Player(50,50,50,50);
+
+	// Creating menu instance
+	MainMenu* menu = new MainMenu(renderer);
 
 	SDL_Event event;
 	while (running) 
@@ -122,9 +126,13 @@ int main(int argc, char*args[])
 			}
 			else if (state == STATE::MENU)
 			{
-				if (event.key.keysym.sym == SDLK_SPACE)
+				if (event.key.keysym.sym == SDLK_s)
 				{
 					state = STATE::GAME;
+				}
+				if (event.key.keysym.sym == SDLK_q)
+				{
+					exit(0);
 				}
 			}
 		}
@@ -132,13 +140,17 @@ int main(int argc, char*args[])
 		/* !RENDERING! */
 
 		// Clearing screen
-		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+		if(state == STATE::MENU)
+			SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+		else
+			SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 		SDL_RenderClear(renderer);
 
 		switch (state)
 		{
 			case STATE::MENU:
 				// RENDEROWANIE MENU
+				menu->Draw(renderer);
 				break;
 			case STATE::GAME:
 				// RENDEROWANIE GRY
