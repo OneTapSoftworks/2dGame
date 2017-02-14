@@ -11,7 +11,7 @@
 using namespace std;
 
 // Window config
-int WIDTH = 0, HEIGHT = 0, VSYNC = 0;
+int WIDTH = 0, HEIGHT = 0, VSYNC = 0, DEV = 0, FPS_LIMIT = 0;
 const char* TITLE = "OneTapSoftworks - Technology Demo";
 const bool RESIZABLE = false;
 
@@ -25,6 +25,16 @@ bool running = true;
 
 int main(int argc, char*args[])
 {
+	// Read configuration files
+	engine.ReadConfig();
+
+	// DEV Mode init
+	DEV = engine.getDevMode();
+	if (DEV)
+		cout << "Developer mode is activated!" << endl;
+	else
+		FreeConsole();
+
 	// Initializing
 	SDL_Init(SDL_INIT_EVERYTHING);
 	TTF_Init();
@@ -32,10 +42,10 @@ int main(int argc, char*args[])
 	cout << "Reading config files..." << endl;
 
 	// Reading engine config
-	engine.ReadConfig();
 	WIDTH = engine.getWidth();
 	HEIGHT = engine.getHeight();
 	VSYNC = engine.getVsync();
+	FPS_LIMIT = engine.getFpsLimit();
 	cout << "Config files readed." << endl;
 	cout << "Creating game window." << endl;
 

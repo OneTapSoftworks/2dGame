@@ -37,6 +37,16 @@ void Engine::ReadConfig()
 			respond >> value;
 			fps_limit = value;
 		}
+		if (current_line == 7)
+		{
+			stringstream respond = parse(line);
+			respond >> value;
+			int xxx = value;
+			if (xxx == 0)
+				dev_mode = false;
+			else
+				dev_mode = true;
+		}
 		current_line++;
 	}
 	cfg.close();
@@ -46,3 +56,4 @@ int Engine::getHeight(){return h;}
 int Engine::getWidth(){return w;}
 int Engine::getVsync(){return vsync;}
 int Engine::getFpsLimit(){return fps_limit;}
+bool Engine::getDevMode() {return dev_mode;}

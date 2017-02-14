@@ -22,9 +22,11 @@ public:
 	}
 
 	int getWidth(), getHeight(), getVsync(), getFpsLimit();
+	bool getDevMode();
 
 	void ReadConfig();
 private:
 	int w, h, vsync, fps_limit;
+	bool dev_mode;
 };
 
