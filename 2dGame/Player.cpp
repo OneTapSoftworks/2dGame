@@ -1,4 +1,5 @@
 #include "Player.h"
+#include <iostream>
 
 Player::Player(float x, float y, int w, int h)
 {
@@ -28,14 +29,51 @@ void Player::Update()
 	playerRect.y = y;
 	playerRect.w = 50;
 	playerRect.h = 50;
+
+	switch (turn)
+	{
+	case TURN::LEFT:
+		x -= vel;
+		break;
+	case TURN::RIGHT:
+		x += vel;
+		break;
+	case TURN::UP:
+		y -= vel;
+		break;
+	case TURN::DOWN:
+		y += vel;
+		break;
+	}
 }
 
-void Player::Move(float xx, float yy)
+void Player::setTurn(int t)
 {
-	x += xx;
-	y += yy;
+	switch (t)
+	{
+	case 1:
+		turn = TURN::LEFT;
+		break;
+	case 2:
+		turn = TURN::RIGHT;
+		break;
+	case 3:
+		turn = TURN::UP;
+		break;
+	case 4:
+		turn = TURN::DOWN;
+		break;
+	}
 }
 
+void Player::MoveX(float xx)
+{
+	x = x + xx;
+}
+void Player::MoveY(float yy)
+{
+	y = y + yy;
+}
 // Getters&Setters
 float Player::getX(){return x;}
 float Player::getY(){return y;}
@@ -47,3 +85,5 @@ void Player::setW(int ww){w=ww;}
 void Player::setH(int hh){h = hh;}
 void Player::setSpd(float spd){speed = spd;}
 float Player::getSpd(){return speed;}
+void Player::setVel(float veel) { vel = veel; }
+float Player::getVel() { return vel; }

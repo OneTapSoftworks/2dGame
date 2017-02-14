@@ -3,6 +3,7 @@
 #include <sstream>
 #include <SDL.h>
 #include <SDL_TTF.h>
+#include <Windows.h>
 #include "Player.h"
 #include "Engine.h"
 
@@ -23,7 +24,6 @@ bool running = true;
 
 int main(int argc, char*args[])
 {
-
 	// Initializing
 	SDL_Init(SDL_INIT_EVERYTHING);
 	TTF_Init();
@@ -64,6 +64,7 @@ int main(int argc, char*args[])
 		// Events
 		while (SDL_PollEvent(&event))
 		{
+			
 			if (event.type == SDL_QUIT)
 			{
 				running = false;
@@ -71,24 +72,51 @@ int main(int argc, char*args[])
 			}
 			if (state == STATE::GAME)
 			{
+				float spd = player->getSpd();
+				float vel = spd / 100;
 				if (event.type == SDL_KEYDOWN)
 				{
+					
 					float spd = player->getSpd();
+
 					if ((event.key.keysym.sym == SDLK_a))
 					{
-						player->Move(-spd, 0);
+						player->setTurn(1);
+						player->setVel(vel);
 					}
 					if ((event.key.keysym.sym == SDLK_d))
 					{
-						player->Move(spd, 0);
+						player->setTurn(2);
+						player->setVel(vel);
 					}
 					if ((event.key.keysym.sym == SDLK_w))
 					{
-						player->Move(0, -spd);
+						player->setTurn(3);
+						player->setVel(vel);
 					}
 					if ((event.key.keysym.sym == SDLK_s))
 					{
-						player->Move(0, spd);
+						player->setTurn(4);
+						player->setVel(vel);
+					}
+				}
+				if (event.type == SDL_KEYUP)
+				{
+					if ((event.key.keysym.sym == SDLK_a))
+					{
+						player->setVel(0);
+					}
+					if ((event.key.keysym.sym == SDLK_d))
+					{
+						player->setVel(0);
+					}
+					if ((event.key.keysym.sym == SDLK_w))
+					{
+						player->setVel(0);
+					}
+					if ((event.key.keysym.sym == SDLK_s))
+					{
+						player->setVel(0);
 					}
 				}
 			}
