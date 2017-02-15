@@ -11,7 +11,7 @@ MainMenu::MainMenu(SDL_Renderer* r)
 	msg_rect.x = 0;
 	msg_rect.y = 0;
 	msg_rect.w = 480;
-	msg_rect.h = 100;
+	msg_rect.h = 24;
 }
 MainMenu::~MainMenu(){}
 
