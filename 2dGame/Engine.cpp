@@ -52,6 +52,47 @@ void Engine::ReadConfig()
 	cfg.close();
 }
 
+void Engine::GetScripts()
+{
+	fstream loader;
+	loader.open("engine/scripts/LOAD.txt");
+	string line;
+	int current_line = 1;
+	size_t val = 0;
+
+	int wykonanie = 0;
+	while (getline(loader, line))
+	{
+		Pliki[wykonanie] = (line);
+		wykonanie++;
+	}
+
+	loader.close();
+}
+
+void Engine::LoadScripts()
+{
+	int wykonania = 0;
+
+	while (arr_size(Pliki) > wykonania)
+	{
+		fstream main_py;
+		string linijka;
+		main_py.open("engine/scripts/" + Pliki[wykonania]);
+		string plik = "";
+
+		while (getline(main_py, linijka))
+		{
+			plik = plik + linijka + "\n";
+		}
+		const char * c = plik.c_str();
+		PyRun_SimpleString(c);
+		wykonania++;
+		main_py.close();
+	}
+
+}
+
 int Engine::getHeight(){return h;}
 int Engine::getWidth(){return w;}
 int Engine::getVsync(){return vsync;}

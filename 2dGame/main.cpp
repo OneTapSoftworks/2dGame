@@ -1,3 +1,4 @@
+#include "Python-2.7\Python.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -7,29 +8,72 @@
 #include "Player.h"
 #include "Engine.h"
 #include "MainMenu.h"
+#include "Functions.h"
+#include "Vars.h"
+
 
 using namespace std;
 
 // Window config
-int WIDTH = 0, HEIGHT = 0, VSYNC = 0, DEV = 0, FPS_LIMIT = 0;
+int WIDTH, HEIGHT, VSYNC, DEV, FPS_LIMIT;
 const char* TITLE = "OneTapSoftworks - Technology Demo";
 const bool RESIZABLE = false;
 
 // State system
 enum STATE {MENU, GAME};
 STATE state = MENU;
+Engine* engine = new Engine();
 
-Engine engine;
+FILE fp;
 
 bool running = true;
 
+PyMODINIT_FUNC
+initdebug(void)
+{
+	PyObject *m;
+
+	m = Py_InitModule("debug", DebugMethods);
+	if (m == NULL)
+		return;
+
+	SpamError = PyErr_NewException("spam.error", NULL, NULL);
+	Py_INCREF(SpamError);
+	PyModule_AddObject(m, "error", SpamError);
+	(void)Py_InitModule("debug", DebugMethods);
+}
+
+PyMODINIT_FUNC
+initplayer(void)
+{
+	PyObject *m;
+
+	m = Py_InitModule("player", PlayerMethods);
+	if (m == NULL)
+		return;
+
+	SpamError = PyErr_NewException("player.error", NULL, NULL);
+	Py_INCREF(SpamError);
+	PyModule_AddObject(m, "error", SpamError);
+	(void)Py_InitModule("player", PlayerMethods);
+}
+
 int main(int argc, char*args[])
 {
+	Py_SetProgramName(args[0]);
+	Py_Initialize();
+	initdebug();
+	initplayer();
+
+	engine->GetScripts();
+	engine->LoadScripts();
+
 	// Read configuration files
-	engine.ReadConfig();
+	engine->ReadConfig();
+
 
 	// DEV Mode init
-	DEV = engine.getDevMode();
+	DEV = engine->getDevMode();
 	if (DEV)
 		cout << "Developer mode is activated!" << endl;
 	else
@@ -42,15 +86,15 @@ int main(int argc, char*args[])
 	cout << "Reading config files..." << endl;
 
 	// Reading engine config
-	WIDTH = engine.getWidth();
-	HEIGHT = engine.getHeight();
-	VSYNC = engine.getVsync();
-	FPS_LIMIT = engine.getFpsLimit();
+	WIDTH = engine->getWidth();
+	HEIGHT = engine->getHeight();
+	VSYNC = engine->getVsync();
+	FPS_LIMIT = engine->getFpsLimit();
 	cout << "Config files readed." << endl;
 	cout << "Creating game window." << endl;
 
 	// Setting up graphics
-	SDL_GL_SetSwapInterval(VSYNC);
+	//SDL_GL_SetSwapInterval(VSYNC);
 
 	// Setting up game window
 	SDL_Window *window;
@@ -67,7 +111,6 @@ int main(int argc, char*args[])
 	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
 	// Creating player
-	Player* player = new Player(50,50,50,50);
 
 	// Creating menu instance
 	MainMenu* menu = new MainMenu(renderer);
@@ -176,5 +219,6 @@ int main(int argc, char*args[])
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 	TTF_Quit();
+	Py_Finalize();
 	return EXIT_SUCCESS;
 }

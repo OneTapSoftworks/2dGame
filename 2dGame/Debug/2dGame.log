@@ -1,5 +1,8 @@
 ﻿  main.cpp
-  Engine.cpp
-  Generowanie kodu...
+c:\extern\include\python-2.7\pymath.h(22): warning C4273: "round": niespójne powiązanie biblioteki dll
+  c:\program files (x86)\windows kits\10\include\10.0.14393.0\ucrt\math.h(532): note: zobacz poprzednią definicję „round”
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.10.24930\include\xtgmath.h(208): warning C4273: "round": niespójne powiązanie biblioteki dll
+  c:\program files (x86)\windows kits\10\include\10.0.14393.0\ucrt\math.h(532): note: zobacz poprzednią definicję „round”
+     Trwa tworzenie biblioteki C:\Users\Artur1\Documents\Visual Studio 2017\Projects\2dGame\Debug\2dGame.lib i obiektu C:\Users\Artur1\Documents\Visual Studio 2017\Projects\2dGame\Debug\2dGame.exp
   2dGame.vcxproj -> C:\Users\Artur1\Documents\Visual Studio 2017\Projects\2dGame\Debug\2dGame.exe
   2dGame.vcxproj -> C:\Users\Artur1\Documents\Visual Studio 2017\Projects\2dGame\Debug\2dGame.pdb (Partial PDB)

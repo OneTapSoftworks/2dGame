@@ -1,7 +1,12 @@
-﻿  MainMenu.cpp
+﻿  main.cpp
+c:\extern\include\python-2.7\pymath.h(22): warning C4273: "round": niespójne powiązanie biblioteki dll
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\math.h(532): note: zobacz poprzednią definicję „round”
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.24930\include\xtgmath.h(208): warning C4273: "round": niespójne powiązanie biblioteki dll
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\math.h(532): note: zobacz poprzednią definicję „round”
+     Trwa tworzenie biblioteki C:\Users\Artur1\Documents\Visual Studio 2017\Projects\2dGame\Release\2dGame.lib i obiektu C:\Users\Artur1\Documents\Visual Studio 2017\Projects\2dGame\Release\2dGame.exp
   Trwa generowanie kodu
-  2 of 231 functions ( 0.9%) were compiled, the rest were copied from previous compilation.
+  2 of 273 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    30 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Zakończono generowanie kodu
-  2dGame.vcxproj -> C:\Users\PC\Documents\Visual Studio 2017\Projects\2dGame\Release\2dGame.exe
+  2dGame.vcxproj -> C:\Users\Artur1\Documents\Visual Studio 2017\Projects\2dGame\Release\2dGame.exe
